@@ -4,7 +4,7 @@ module FlexCommerceApi
       def menu_items_for(menu_reference, &blk)
         @__flex_commerce_api_rails_cache ||= {}
         @__flex_commerce_api_rails_cache[:menus] ||= {}
-        menu = ::FlexCommerce::Menu.find(menu_reference)
+        menu = ::FlexCommerce::Menu.find("reference:#{menu_reference}")
         return if menu.nil?
         @__flex_commerce_api_rails_cache[:menus].merge!(menu_reference => menu)
         menu.menu_items.each(&blk)
