@@ -1,0 +1,18 @@
+<div class="sub">
+  <h3>Flex Platform</h3>
+  <p>An error has occured in the flex platform</p>
+  <div class="inset variables">
+    <h4>Request</h4>
+    <table class="var_table">
+      <% @exception.exception.request_env.each_pair do |name, value| %>
+          <tr><td class="name"><%= name %></td><td><pre><%== inspect_value value %></pre></td></tr>
+      <% end %>
+    </table>
+    <h4>Response</h4>
+    <table class="var_table">
+      <% @exception.exception.response_env.each_pair do |name, value| %>
+          <tr><td class="name"><%= name %></td><td><pre><%== inspect_value value %></pre></td></tr>
+      <% end %>
+    </table>
+  </div>
+</div>
