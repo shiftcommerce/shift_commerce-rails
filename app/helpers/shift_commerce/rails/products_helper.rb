@@ -1,4 +1,4 @@
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     module ProductsHelper
       def product_price_for(product)

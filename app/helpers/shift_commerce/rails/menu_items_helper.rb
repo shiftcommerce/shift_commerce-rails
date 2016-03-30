@@ -1,12 +1,12 @@
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     module MenuItemsHelper
       def menu_items_for(menu_reference, &blk)
-        @__flex_commerce_api_rails_cache ||= {}
-        @__flex_commerce_api_rails_cache[:menus] ||= {}
+        @__shiftcommerce_rails_cache ||= {}
+        @__shiftcommerce_rails_cache[:menus] ||= {}
         menu = ::FlexCommerce::Menu.find("reference:#{menu_reference}")
         return if menu.nil?
-        @__flex_commerce_api_rails_cache[:menus].merge!(menu_reference => menu)
+        @__shiftcommerce_rails_cache[:menus].merge!(menu_reference => menu)
         menu.menu_items.each(&blk)
       end
 

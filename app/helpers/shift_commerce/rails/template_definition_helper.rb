@@ -1,4 +1,4 @@
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     module TemplateDefinitionHelper
       def render_template_for(item, *args)
