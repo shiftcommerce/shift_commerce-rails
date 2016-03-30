@@ -1,4 +1,4 @@
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     class BetterErrorPage < ::BetterErrors::ErrorPage
       def self.flex_template_dir
@@ -22,7 +22,7 @@ module FlexCommerceApi
 
       private
       def is_a_flex_exception?
-        @exception.exception.is_a? ::FlexCommerceApi::Error::Base
+        @exception.exception.is_a? ::FlexCommerce::Error::Base
       end
 
     end

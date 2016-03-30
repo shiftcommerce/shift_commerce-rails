@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'flex_commerce_api/rails/version'
+require 'shift_commerce/rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "flex_commerce_api-rails"
-  spec.version       = FlexCommerceApi::Rails::VERSION
+  spec.name          = "shift_commerce-rails"
+  spec.version       = ShiftCommerce::Rails::VERSION
   spec.authors       = ["Gary Taylor"]
   spec.email         = ["gary.taylor@hismessages.com"]
 
-  spec.summary       = "Rails assistance for flex commerce"
-  spec.description   = "Rails assistance for flex commerce"
+  spec.summary       = "Rails assistance for shift commerce"
+  spec.description   = "Rails assistance for shift commerce"
   spec.homepage      = "http://wehaventgotoneyet.com"
   spec.license       = "MIT"
 

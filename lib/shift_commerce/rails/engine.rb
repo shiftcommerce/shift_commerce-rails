@@ -1,8 +1,8 @@
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     class Engine < ::Rails::Engine
-      isolate_namespace FlexCommerceApi::Rails
-      initializer "flex_commerce_api-rails.set_helpers_path", before: "action_controller.set_helpers_path" do |app|
+      isolate_namespace ShiftCommerce::Rails
+      initializer "shift_commerce-rails.set_helpers_path", before: "action_controller.set_helpers_path" do |app|
         app.config.helpers_paths.unshift File.expand_path("../../../app/helpers", __dir__)
       end
       initializer "better_errors.configure_rails_initialization" do |app|

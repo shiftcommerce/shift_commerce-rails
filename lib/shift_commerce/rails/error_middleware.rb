@@ -2,7 +2,7 @@ require "json"
 require "ipaddr"
 require "set"
 require "rack"
-module FlexCommerceApi
+module ShiftCommerce
   module Rails
     TEMPLATE_PATH = File.expand_path(File.join("error_templates"), __dir__)
     # Flex Commerce API error handling middleware. Including this in your middleware
@@ -24,7 +24,7 @@ module FlexCommerceApi
       allow_ip! "127.0.0.0/8"
       allow_ip! "::1/128" rescue nil # windows ruby doesn't have ipv6 support
 
-      # A new instance of FlexCommerceApi::Rails::ErrorMiddleware
+      # A new instance of ShiftCommerce::Rails::ErrorMiddleware
       #
       # @param app      The Rack app/middleware to wrap
       def initialize(app)
@@ -54,7 +54,7 @@ module FlexCommerceApi
 
       def call_with_rescue(env)
         @app.call env
-      rescue FlexCommerceApi::Error::Base => ex
+      rescue FlexCommerce::Error::Base => ex
         render_error_page(env, ex)
       end
 
