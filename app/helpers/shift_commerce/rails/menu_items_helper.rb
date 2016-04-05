@@ -15,7 +15,7 @@ module ShiftCommerce
         case item.class.to_s
           when "FlexCommerce::Product" then "/products/#{item.slug}"
           when "FlexCommerce::StaticPage" then pages_path slug: item.slug
-          when "FlexCommerce::Category" then "/categories/#{item.slug}"
+          when "FlexCommerce::Category" then "/categories/web/#{item.slug}"
           else raise "Item #{item.class} is not defined in menu_items helper - so unable to calculate url"
         end
 
