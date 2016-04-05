@@ -1,15 +1,12 @@
 module ShiftCommerce
   module Rails
     module TemplateDefinitionHelper
-      def render_template_for(item, *args)
+      def render_template_for(item)
         tpl = item.template_definition
         if(tpl.present?)
-          render "template_definitions/#{tpl.reference}", *args
-        else
-          render *args
+          render "template_definitions/#{tpl.reference}"
         end
       end
     end
   end
-
 end
