@@ -5,7 +5,7 @@ require 'shift_commerce/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "shiftcommerce-rails"
-  spec.version       = ShiftCommerce::Rails::VERSION
+  spec.version       = ShiftCommerce::VERSION
   spec.authors       = ["Gary Taylor", "Ryan Townsend"]
   spec.email         = ["gary.taylor@hismessages.com", "ryan@ryantownsend.co.uk"]
 
