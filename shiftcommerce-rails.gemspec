@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'shift_commerce/rails/version'
+require 'shift_commerce/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "shift_commerce-rails"
+  spec.name          = "shiftcommerce-rails"
   spec.version       = ShiftCommerce::Rails::VERSION
-  spec.authors       = ["Gary Taylor"]
-  spec.email         = ["gary.taylor@hismessages.com"]
+  spec.authors       = ["Gary Taylor", "Ryan Townsend"]
+  spec.email         = ["gary.taylor@hismessages.com", "ryan@ryantownsend.co.uk"]
 
-  spec.summary       = "Rails assistance for shift commerce"
-  spec.description   = "Rails assistance for shift commerce"
-  spec.homepage      = "http://wehaventgotoneyet.com"
+  spec.summary       = "Standard Rails engine for building Shift front-end websites"
+  spec.description   = "Standard Rails engine for building Shift front-end websites"
+  spec.homepage      = "https://shiftcommerce.com/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
