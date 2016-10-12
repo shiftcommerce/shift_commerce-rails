@@ -1,6 +1,4 @@
-require 'shift_commerce/version'
+require "shift_commerce/engine"
 
 module ShiftCommerce
 end
-
-require 'shift_commerce/engine'
