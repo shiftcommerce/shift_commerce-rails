@@ -7,5 +7,9 @@ module ShiftCommerce
       app.config.helpers_paths.unshift File.expand_path("../../app/helpers", __dir__)
     end
 
+    config.generators do |g|
+      g.test_framework :rspec
+    end
+
   end
 end
