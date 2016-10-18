@@ -5,6 +5,7 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require "webmock/rspec"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
