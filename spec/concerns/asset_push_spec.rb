@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-class FakeController < ApplicationController
+class AssetPushController < ApplicationController
   include ShiftCommerce::AssetPush
 end
 
-class FakeWithAssetsController < FakeController
+class AssetPushWithAssetsController < AssetPushController
   def index
     render nothing: true
   end
@@ -20,10 +20,10 @@ describe ShiftCommerce::AssetPush, type: :controller do
 
   context 'with push_assets set' do
     before do
-      @controller = FakeWithAssetsController.new
+      @controller = AssetPushWithAssetsController.new
 
       Rails.application.routes.draw do
-        get '/assets' => 'fake_with_assets#index'
+        get '/assets' => 'asset_push_with_assets#index'
       end
     end
 
@@ -37,7 +37,7 @@ describe ShiftCommerce::AssetPush, type: :controller do
 
   context 'without push_assets set' do
     before do
-      @controller = FakeController.new
+      @controller = AssetPushController.new
     end
 
     it "should raise an error if push_assets is not overriden" do
