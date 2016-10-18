@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/flex-commerce/flex-ruby-gem.git
-  revision: 8c4cb998ab3cea54f31d1884985c846c9d07e68d
-  tag: v0.6.12
+  revision: 32c1f055ed2bed7b816c0aed692f54cf4decc256
+  tag: v0.6.13
   specs:
-    flex_commerce_api (0.6.12)
+    flex_commerce_api (0.6.13)
       activesupport (>= 4.0)
       faraday-http-cache (= 1.3.0)
       json_api_client (= 1.1.1)
