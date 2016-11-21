@@ -25,7 +25,7 @@ module ShiftCommerce
 
     # appends a private Cache-Control
     def prevent_page_caching
-      response.headers['Cache-Control'] = 'private, max-age=0, must-revalidate'
+      response.headers['Cache-Control'] = 'private, no-cache, no-store, must-revalidate'
     end
 
     # appends a Vary header instructing the caching to be unique to the session cookie
@@ -43,7 +43,7 @@ module ShiftCommerce
       if surrogate_keys.present? && ENV['FASTLY_ENABLE_ESI']
         response.headers['Surrogate-Key'] = surrogate_keys.split(' ').reject { |k| k.include?('menu_item') }.join(' ')
         response.headers['Surrogate-Control'] = 'max-age=3600,stale-if-error=86400,stale-while-revalidate=86400'
-        response.headers['Cache-Control'] = 'max-age=0, must-revalidate'
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
       end
     end
 
