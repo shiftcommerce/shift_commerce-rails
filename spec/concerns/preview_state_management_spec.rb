@@ -48,7 +48,7 @@ describe ShiftCommerce::PreviewStateManagement, type: :controller do
     stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\.json_api/).
       to_return(status: 200, body: STANDARD_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
     stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\.json_api\?preview=true/).
-      to_return(status: 200, body: PREVIEW_RESPONSE)
+      to_return(status: 200, body: PREVIEW_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
 
     @controller = PreviewStateManagementController.new
 
@@ -67,9 +67,9 @@ describe ShiftCommerce::PreviewStateManagement, type: :controller do
 
   context 'with the preview enabled' do
     it "should return the scheduled content" do
-      get :index
+      get :index, preview: true
 
-      false
+      expect(response.body).to include('Preview')
     end
   end
 
