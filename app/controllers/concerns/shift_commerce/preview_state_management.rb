@@ -3,29 +3,31 @@
 #
 # This module contains logic for handling the preview state
 #
-module PreviewStateManagement
-  extend ActiveSupport::Concern
+module ShiftCommerce
+  module PreviewStateManagement
+    extend ActiveSupport::Concern
 
-  included do
-    # Check for the previewed state.
-    around_action :handle_preview_state
-  end
+    included do
+      # Check for the previewed state.
+      around_action :handle_preview_state
+    end
 
-  protected
+    protected
 
-  def handle_preview_state
-    if params[:preview].present?
-      begin
-        # Doing this is not particular pretty and raises a question to thread
-        # safety of the underlying gem implementation. This MUST be addressed
-        # later - FIXME
-        FlexCommerceApi::ApiBase.reconfigure_all include_previewed: true
+    def handle_preview_state
+      if params[:preview].present?
+        begin
+          # Doing this is not particular pretty and raises a question to thread
+          # safety of the underlying gem implementation. This MUST be addressed
+          # later - FIXME
+          FlexCommerceApi::ApiBase.reconfigure_all include_previewed: true
+          yield
+        ensure
+          FlexCommerceApi::ApiBase.reconfigure_all
+        end
+      else
         yield
-      ensure
-        FlexCommerceApi::ApiBase.reconfigure_all
       end
-    else
-      yield
     end
   end
 end
