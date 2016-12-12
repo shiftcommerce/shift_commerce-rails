@@ -8,8 +8,7 @@ module ShiftCommerce
     extend ActiveSupport::Concern
 
     included do
-      rescue_from ::FlexCommerceApi::Error::NotFound, ActionController::RoutingError,
-        with: :handle_resource_not_found
+      rescue_from FlexCommerceApi::Error::NotFound, FlexCommerceApi::Error::InternalServer, with: :handle_resource_not_found
     end
 
     # default handler for API lookup 404 Not Found responses
@@ -28,12 +27,16 @@ module ShiftCommerce
     # when redirects cannot be found, handle using regular 404 process
     rescue ::FlexCommerceApi::Error::NotFound => ex
       log_exception(ex)
-      handle_not_found(exception)
+      handle_not_found(ex)
     end
 
     # default behavior for handling not found errors, easily overridable and reusable
     def handle_not_found(exception = nil)
-      raise(exception)
+      if exception
+        raise(exception)
+      else
+        raise StandardError, "#{self.class.name}#handle_not_found called without exception, this method should be overridden."
+      end
     end
 
     protected
