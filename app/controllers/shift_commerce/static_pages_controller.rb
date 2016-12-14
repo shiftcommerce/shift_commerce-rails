@@ -5,19 +5,19 @@ module ShiftCommerce
 
     API_STATIC_PAGE_INCLUDES = "template_definition,meta.*".freeze
 
-    expose(:static_page) { fetch_static_page }
-
     def show
-      set_meta_tags title: static_page_title,
-                    canonical: generate_absolute_url_for(static_page.slug),
-                    description: static_page.meta_attribute(:meta_description),
-                    keywords: static_page.meta_attribute(:keywords)
+      @static_page = fetch_static_page
 
-      if static_page.published == true
+      set_meta_tags title: static_page_title,
+                    canonical: generate_absolute_url_for(@static_page.slug),
+                    description: @static_page.meta_attribute(:meta_description),
+                    keywords: @static_page.meta_attribute(:keywords)
+
+      if @static_page.published == true
         if request.headers['X-PJAX'.freeze] || params[:minimal]
-          render_template_for static_page, layout: false
+          render_template_for @static_page, layout: false
         else
-          render_template_for static_page
+          render_template_for @static_page
         end
       else
         handle_resource_not_found
@@ -39,7 +39,7 @@ module ShiftCommerce
     end
 
     def static_page_title
-      static_page.meta_attribute(:meta_title_override) || static_page.title
+      @static_page.meta_attribute(:meta_title_override) || @static_page.title
     end
   end
 end

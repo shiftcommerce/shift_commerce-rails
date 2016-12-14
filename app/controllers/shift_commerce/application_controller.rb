@@ -4,11 +4,7 @@ module ShiftCommerce
     include ShiftCommerce::PreviewStateManagement
     include ShiftCommerce::NotFoundRedirects
     include ShiftCommerce::AssetPush
-    include ResourceUrl
-    include CartManagement
-    include MenuManagement
-    include AccountManagement
-    include ShippingMethodManagement
+    include ShiftCommerce::ResourceUrl
 
     # Set the X-Cart-Id header on all requests with a cart_id session
     after_action :set_x_cart_id, unless: -> { request.get? || request.head? }
@@ -20,13 +16,6 @@ module ShiftCommerce
 
     # Prevent CSRF attacks by raising an exception.
     protect_from_forgery with: :exception
-
-    expose(:page_title) { t("application_name") }
-    expose(:canonical_url) { nil }
-
-    # similar regex is also used in rack_slug.rb
-    # this regex will validates old matalan site canonical product urls
-    expose(:old_canonical_sku_regex) { /^\/product\/detail\/(S\d{7}).*$/.freeze }
 
     # this overrides NotFoundRedirects#handle_not_found to provide site-wide nice 404 pages
     def handle_not_found(exception = nil)

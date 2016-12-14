@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Declare your gem's dependencies in shiftcommerce.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
-gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.20.2'
 gemspec
 
 # Declare any dependencies that are still in development here instead of in
@@ -11,8 +10,20 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use a debugger
-gem 'pry-rails', group: [:development, :test]
-gem 'pry-byebug', group: [:development, :test]
+# Shift Commerce gem
+gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.20.2'
 
-gem "webmock", "~> 1.24.2", group: [:test], require: false
+group :development, :test do
+  # Debugging tools
+  gem 'pry-rails'
+  gem 'pry-byebug'
+end
+
+group :test do
+  # Mocks
+  gem "webmock", "~> 1.24.2", require: false
+
+  # Feature tests
+  gem "capybara", "~> 2.7"
+  gem "capybara-webkit", "~> 1.7"
+end

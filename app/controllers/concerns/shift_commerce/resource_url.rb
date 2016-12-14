@@ -19,8 +19,8 @@ module ShiftCommerce
       [path, @stringified_params].compact.join('?'.freeze)
     end
 
-    def generate_absolute_url_for(path, params = false)
-      generate_url_for(path, params)[1..-1].prepend(root_url)
+    def generate_absolute_url_for(path, params = false, base_url = request.base_url)
+      generate_url_for(path, params)[1..-1].prepend("#{base_url}/")
     end
 
     def generate_params_from_string(string)
@@ -31,6 +31,5 @@ module ShiftCommerce
         hash
       end
     end
-
   end
 end
