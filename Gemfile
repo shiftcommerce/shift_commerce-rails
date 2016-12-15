@@ -23,7 +23,7 @@ group :test do
   # Mocks
   gem "webmock", "~> 1.24.2", require: false
 
-  # Feature tests
-  gem "capybara", "~> 2.7"
-  gem "capybara-webkit", "~> 1.7"
+  # Feature tests (not yet used)
+  # gem "capybara", "~> 2.7"
+  # gem "capybara-webkit", "~> 1.7"
 end
