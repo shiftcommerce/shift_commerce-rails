@@ -1,12 +1,19 @@
 module ShiftCommerce
   module TemplateDefinitionHelper
     def render_template_for(item, *args)
-      tpl = item.template_definition
-      if(tpl.present?)
-        render "template_definitions/#{tpl.reference}", *args
+      if item.template_definition.present?
+        if minimal_layout?
+          render "template_definitions/#{tpl.reference}", *args, layout: false
+        else
+          render "template_definitions/#{tpl.reference}", *args
+        end
       else
         render *args
       end
+    end
+
+    def minimal_layout?
+      request.headers['X-PJAX'.freeze] || params[:minimal]
     end
   end
 end
