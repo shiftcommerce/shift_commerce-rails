@@ -79,7 +79,7 @@ describe ShiftCommerce::NotFoundRedirects, type: :controller do
     context 'with no redirect' do
       before do
         stub_request(:get, /.*\/testaccount\/v1\/redirects\.json_api/).
-        to_return(status: 200, body: Mocks::Redirects::EMPTY_REDIRECT, headers: { 'Content-Type': 'application/vnd.api+json' })
+          to_return(status: 200, body: Mocks::Redirects::EMPTY_REDIRECT, headers: { 'Content-Type': 'application/vnd.api+json' })
       end
 
       it "should raise an exception" do
