@@ -28,8 +28,12 @@ describe ShiftCommerce::NotFoundRedirects, type: :controller do
     @controller = NotFoundRedirectsController.new
 
     Rails.application.routes.draw do
-      get '/' => 'not_found_redirects#index'
+      get '/not_found_redirects' => 'not_found_redirects#index'
     end
+  end
+
+  after do
+    Rails.application.reload_routes!
   end
 
   context 'when accessing a nonexistent resource' do

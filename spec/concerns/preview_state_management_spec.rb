@@ -21,8 +21,12 @@ describe ShiftCommerce::PreviewStateManagement, type: :controller do
     @controller = PreviewStateManagementController.new
 
     Rails.application.routes.draw do
-      get '/' => 'preview_state_management#index'
+      get '/preview_state_management' => 'preview_state_management#index'
     end
+  end
+
+  after do
+    Rails.application.reload_routes!
   end
 
   context 'with the preview disabled' do
