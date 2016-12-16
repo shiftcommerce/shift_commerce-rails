@@ -8,10 +8,6 @@ describe ShiftCommerce::ResourceUrl, type: :controller do
 
   before do
     @controller = ResourceUrlController.new
-
-    Rails.application.routes.draw do
-      root to: 'resource_url#index'
-    end
   end
 
   context 'generate_url_for' do
