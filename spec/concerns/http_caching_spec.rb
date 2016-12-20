@@ -28,12 +28,16 @@ end
 
 describe ShiftCommerce::HttpCaching, type: :controller do
 
+  after do
+    Rails.application.reload_routes!
+  end
+
   context 'without invoking a HttpCaching method' do
     before do
       @controller = HttpCachingController.new
 
       Rails.application.routes.draw do
-        get '/' => 'http_caching#index'
+        get '/http_caching' => 'http_caching#index'
       end
     end
 
@@ -49,7 +53,7 @@ describe ShiftCommerce::HttpCaching, type: :controller do
       @controller = HttpCachingWithSharedPageController.new
 
       Rails.application.routes.draw do
-        get '/' => 'http_caching_with_shared_page#index'
+        get '/http_caching_shared' => 'http_caching_with_shared_page#index'
       end
 
       ENV['FASTLY_ENABLE_ESI'] = 'true'
@@ -74,7 +78,7 @@ describe ShiftCommerce::HttpCaching, type: :controller do
       @controller = HttpCachingWithPrivatePageController.new
 
       Rails.application.routes.draw do
-        get '/' => 'http_caching_with_private_page#index'
+        get '/http_caching_private' => 'http_caching_with_private_page#index'
       end
 
       ENV['FASTLY_ENABLE_ESI'] = 'true'

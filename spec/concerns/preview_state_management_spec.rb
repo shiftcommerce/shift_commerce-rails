@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+require 'mocks/preview_state_management_mocks'
+
 class PreviewStateManagementController < ApplicationController
   include ShiftCommerce::PreviewStateManagement
 
@@ -10,51 +12,21 @@ class PreviewStateManagementController < ApplicationController
 end
 
 describe ShiftCommerce::PreviewStateManagement, type: :controller do
-  STANDARD_RESPONSE = {
-    data: {
-      id: "1",
-      type: "static_pages",
-      links: {
-        self: "/testaccount/v1/static_pages/1.json_api"
-      },
-      attributes: {
-        body_content: "Published",
-        published: true
-      }
-    },
-    links: {
-      self: "/testaccount/v1/static_pages/1.json_api"
-    }
-  }.to_json
-
-  PREVIEW_RESPONSE = {
-    data: {
-      id: "1",
-      type: "static_pages",
-      links: {
-        self: "/testaccount/v1/static_pages/1.json_api"
-      },
-      attributes: {
-        body_content: "Preview",
-        published: true
-      }
-    },
-    links: {
-      self: "/testaccount/v1/static_pages/1.json_api?preview=true"
-    }
-  }.to_json
-
   before do
     stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\.json_api/).
-      to_return(status: 200, body: STANDARD_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
+      to_return(status: 200, body: Mocks::PreviewStateManagement::STANDARD_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
     stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\.json_api\?preview=true/).
-      to_return(status: 200, body: PREVIEW_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
+      to_return(status: 200, body: Mocks::PreviewStateManagement::PREVIEW_RESPONSE, headers: { 'Content-Type': 'application/vnd.api+json' })
 
     @controller = PreviewStateManagementController.new
 
     Rails.application.routes.draw do
-      get '/' => 'preview_state_management#index'
+      get '/preview_state_management' => 'preview_state_management#index'
     end
+  end
+
+  after do
+    Rails.application.reload_routes!
   end
 
   context 'with the preview disabled' do

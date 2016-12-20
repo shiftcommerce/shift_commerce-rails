@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount ShiftCommerce::Engine => "/shiftcommerce"
+  mount ShiftCommerce::Engine => "/shift_commerce"
 end
