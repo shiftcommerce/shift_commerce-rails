@@ -56,26 +56,6 @@ describe ShiftCommerce::NotFoundRedirects, type: :controller do
       end
     end
 
-    context 'with a valid resource redirect' do
-      before do
-        stub_request(:get, /.*\/testaccount\/v1\/redirects\.json_api/).
-          to_return(status: 200, body: Mocks::Redirects::RESOURCE_REDIRECT, headers: { 'Content-Type': 'application/vnd.api+json' })
-      end
-
-      it "should redirect the correct path" do
-        get :index
-
-        expect(response).to redirect_to '/products/1'
-      end
-
-      it "should redirect with the status given in the response" do
-        get :index
-
-        expect(response.status).to eq(301)
-      end
-    end
-
-
     context 'with no redirect' do
       before do
         stub_request(:get, /.*\/testaccount\/v1\/redirects\.json_api/).
