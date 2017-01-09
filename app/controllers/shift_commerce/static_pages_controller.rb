@@ -1,5 +1,5 @@
 module ShiftCommerce
-  class StaticPagesController < ShiftCommerce::ApplicationController
+  class StaticPagesController < ::ApplicationController
 
     include ShiftCommerce::TemplateDefinitionHelper
     cache_shared_page only: :show

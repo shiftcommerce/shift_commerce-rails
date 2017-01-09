@@ -2,7 +2,7 @@ require 'rails_helper'
 
 require 'mocks/preview_state_management_mocks'
 
-class PreviewStateManagementController < ApplicationController
+class PreviewStateManagementController < ActionController::Base
   include ShiftCommerce::PreviewStateManagement
 
   def index
