@@ -3,9 +3,9 @@ module ShiftCommerce
     def render_template_for(item, *args)
       if item.template_definition.present?
         if minimal_layout?
-          render "template_definitions/#{tpl.reference}", *args, layout: false
+          render "template_definitions/#{item.template_definition.reference}", *args, layout: false
         else
-          render "template_definitions/#{tpl.reference}", *args
+          render "template_definitions/#{item.template_definition.reference}", *args
         end
       else
         render *args
