@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/flex-commerce/flex-ruby-gem.git
-  revision: 50690552882a557c84325b1b03e026ccf25187c4
-  branch: hotfix/remove_resource_type_and_slug_from_redirects
+  revision: dd6dc2c38d94eed412fdb54384e74f3ea87aa20a
+  branch: hotfix/remove_slug_from_redirects
   specs:
-    flex_commerce_api (0.6.20)
+    flex_commerce_api (0.6.24)
       activesupport (>= 4.0)
       faraday-http-cache (= 1.3.0)
       json_api_client (= 1.1.1)
@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    shiftcommerce-rails (0.5.0)
+    shiftcommerce-rails (0.5.1)
       activemerchant (~> 1.54)
       meta-tags (~> 2.3.1)
       rails (~> 4.2.7)
@@ -62,16 +62,16 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (6.0.3)
+    arel (6.0.4)
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
-    concurrent-ruby (1.0.3)
+    concurrent-ruby (1.0.4)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    faraday (0.10.0)
+    faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     faraday-http-cache (1.3.0)
       faraday (~> 0.8)
