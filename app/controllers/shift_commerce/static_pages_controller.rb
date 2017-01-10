@@ -29,7 +29,7 @@ module ShiftCommerce
     end
 
     def static_page
-      ::FlexCommerce::StaticPage.includes(API_STATIC_PAGE_INCLUDES).find(params[:id]).first
+      @static_page ||= ::FlexCommerce::StaticPage.includes(API_STATIC_PAGE_INCLUDES).find(params[:id]).first
     end
 
   end
