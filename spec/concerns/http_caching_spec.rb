@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-class HttpCachingController < ApplicationController
+class HttpCachingController < ActionController::Base
   include ShiftCommerce::HttpCaching
 
   def index

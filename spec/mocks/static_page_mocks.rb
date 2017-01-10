@@ -28,7 +28,14 @@ module Mocks
         }
       },
       links: {
-        self: "/testaccount/v1/static_pages/1.json_api?preview=true"
+        self: "/testaccount/v1/static_pages/1.json_api"
+      }
+    }.to_json.freeze
+
+    TEMPLATE_DEFINITION = {
+      data: [],
+      links: {
+        self: "/testaccount/v1/static_pages/1/template_definition.json_api"
       }
     }.to_json.freeze
   end
