@@ -22,7 +22,7 @@ module ShiftCommerce
 
     def render_static_page
       if static_page.published == true
-        render locals: { static_page: static_page }
+        render_template_for static_page, locals: { static_page: static_page }
       else
         handle_resource_not_found
       end
