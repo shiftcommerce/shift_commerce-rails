@@ -11,7 +11,7 @@ gemspec
 # your gem to rubygems.org.
 
 # Shift Commerce gem
-gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.20.2'
+gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.23'
 
 group :development, :test do
   # Debugging tools

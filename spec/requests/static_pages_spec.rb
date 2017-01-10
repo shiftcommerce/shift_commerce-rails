@@ -9,6 +9,8 @@ RSpec.describe ShiftCommerce::StaticPagesController, type: :request do
     setup do
       stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\.json_api/).
         to_return(status: 200, body: Mocks::StaticPages::STATIC_PAGE, headers: { 'Content-Type': 'application/vnd.api+json' })
+      stub_request(:get, /.*\/testaccount\/v1\/static_pages\/1\/template_definition\.json_api/).
+        to_return(status: 200, body: Mocks::StaticPages::TEMPLATE_DEFINITION, headers: { 'Content-Type': 'application/vnd.api+json' })
     end
 
     it 'should display their title and body content correctly' do
