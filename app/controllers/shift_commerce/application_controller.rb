@@ -5,6 +5,7 @@ module ShiftCommerce
     include ShiftCommerce::NotFoundRedirects
     include ShiftCommerce::AssetPush
     include ShiftCommerce::ResourceUrl
+    include ShiftCommerce::ContentSecurityPolicy
 
     layout 'application'
 
