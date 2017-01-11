@@ -6,6 +6,8 @@ module ShiftCommerce
     include ShiftCommerce::AssetPush
     include ShiftCommerce::ResourceUrl
 
+    layout 'application'
+
     # Set the X-Cart-Id header on all requests with a cart_id session
     after_action :set_x_cart_id, unless: -> { request.get? || request.head? }
 

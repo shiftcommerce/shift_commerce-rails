@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-class ResourceUrlController < ApplicationController
+class ResourceUrlController < ActionController::Base
   include ShiftCommerce::ResourceUrl
 end
 

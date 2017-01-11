@@ -10,7 +10,7 @@ module ShiftCommerce
     end
 
     def url_for_menu_item(menu_item)
-      return menu_item.canonical_path
+      return menu_item.path
     end
   end
 end

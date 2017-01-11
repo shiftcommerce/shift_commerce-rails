@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-class AssetPushController < ApplicationController
+class AssetPushController < ActionController::Base
   include ShiftCommerce::AssetPush
 end
 

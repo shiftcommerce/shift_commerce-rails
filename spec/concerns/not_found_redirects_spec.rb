@@ -2,7 +2,7 @@ require 'rails_helper'
 
 require 'mocks/redirect_mocks'
 
-class NotFoundRedirectsController < ApplicationController
+class NotFoundRedirectsController < ActionController::Base
   include ShiftCommerce::NotFoundRedirects
   include ShiftCommerce::ResourceUrl
 
