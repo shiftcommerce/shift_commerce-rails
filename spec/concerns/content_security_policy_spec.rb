@@ -20,10 +20,6 @@ describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
     end
   end
 
-  after do
-    Rails.application.reload_routes!
-  end
-
   context 'with the CSP' do
     it "should have the correct Content Security Policy" do
       get :index
