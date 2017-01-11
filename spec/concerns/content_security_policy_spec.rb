@@ -10,10 +10,8 @@ end
 
 
 describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
-  let(:controller) { CSPTestController.new }
   let(:headers)    { response.headers }
   let(:csp_header) { headers['Content-Security-Policy'] }
-
 
   before do
     @controller = CSPTestController.new
