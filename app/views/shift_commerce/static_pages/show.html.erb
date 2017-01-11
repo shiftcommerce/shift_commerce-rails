@@ -1,9 +1,9 @@
-<% if @static_page %>
-    <% shift_cache @static_page do %>
-        <h1><%= @static_page.title %></h1>
+<% if static_page %>
+    <% shift_cache static_page do %>
+        <h1><%= static_page.title %></h1>
         <div class="container" role="main">
             <div class="row">
-              <%= @static_page.body_content.html_safe %>
+              <%= static_page.body_content.html_safe %>
             </div>
         </div>
     <% end %>
