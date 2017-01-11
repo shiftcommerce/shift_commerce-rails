@@ -15,15 +15,16 @@ describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
 
   before do
     @controller = CSPTestController.new
-    Rails.application.routes.draw do
-      get '/csp' => 'csp_test#index'
-    end
+    Rails.application.routes.draw { get '/csp' => 'csp_test#index' }
+    get :index
   end
 
   context 'with the CSP' do
-    it "should have the correct Content Security Policy" do
-      get :index
+    it "should include the Content-Security-Policy Response Header" do
       expect(headers).to have_key('Content-Security-Policy')
+    end
+
+    it "should have the correct Content Security Policy" do
       expect(csp_header).to include("default-src 'self'")
       expect(csp_header).to include("base-uri 'self';")
       expect(csp_header).to include("object-src 'none';")
