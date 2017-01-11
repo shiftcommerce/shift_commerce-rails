@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-class CSPController < ActionController::Base
+class CSPTestController < ActionController::Base
   include ShiftCommerce::ContentSecurityPolicy
 
   def index
@@ -10,15 +10,15 @@ end
 
 
 describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
-  let(:controller) { CSPController.new }
+  let(:controller) { CSPTestController.new }
   let(:headers)    { response.headers }
   let(:csp_header) { headers['Content-Security-Policy'] }
 
 
   before do
-    @controller = CSPController.new
+    @controller = CSPTestController.new
     Rails.application.routes.draw do
-      get '/csp' => 'csp#index'
+      get '/csp' => 'csp_test#index'
     end
   end
 
