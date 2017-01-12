@@ -25,7 +25,7 @@ describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
     end
 
     it "should have the correct Content Security Policy" do
-      expect(csp_header).to include("default-src 'self'")
+      expect(csp_header).to include("default-src 'self';")
       expect(csp_header).to include("base-uri 'self';")
       expect(csp_header).to include("object-src 'none';")
       expect(csp_header).to include("img-src 'self' data:;")
@@ -33,7 +33,8 @@ describe ShiftCommerce::ContentSecurityPolicy, type: :controller do
       expect(csp_header).to include("style-src 'self';")
       expect(csp_header).to include("font-src 'self';")
       expect(csp_header).to include("child-src 'none';")
-      expect(csp_header).to include("frame-ancestors 'none'")
+      expect(csp_header).to include("frame-ancestors 'none';")
+      expect(csp_header).to include("connect-src 'self'")
     end
   end
 end
