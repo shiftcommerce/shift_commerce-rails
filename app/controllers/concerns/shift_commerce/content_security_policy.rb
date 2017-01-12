@@ -15,7 +15,8 @@ module ShiftCommerce
       'style-src': ["'self'"],
       'font-src': ["'self'"],
       'child-src': ["'none'"],
-      'frame-ancestors': ["'none'"]
+      'frame-ancestors': ["'none'"],
+      'connect-src': ["'self'"]
     }.with_indifferent_access.freeze
 
     included do
