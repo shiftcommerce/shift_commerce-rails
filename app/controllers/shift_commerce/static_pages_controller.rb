@@ -6,6 +6,8 @@ module ShiftCommerce
 
     API_STATIC_PAGE_INCLUDES = "template_definition,meta.*".freeze
 
+    before_action -> { check_canonical_path_for(bundle) }, only: :show
+
     def show
       set_static_page_meta_tags
       render_static_page
