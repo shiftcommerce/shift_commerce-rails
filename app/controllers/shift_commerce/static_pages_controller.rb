@@ -6,6 +6,8 @@ module ShiftCommerce
 
     API_STATIC_PAGE_INCLUDES = "template_definition,meta.*".freeze
 
+    before_action -> { check_canonical_path_for(bundle) }, only: :show
+
     def show
       set_static_page_meta_tags
       render_static_page
@@ -14,7 +16,7 @@ module ShiftCommerce
     private
 
     def set_static_page_meta_tags
-      set_meta_tags title: static_page.meta_attribute(:meta_title_override) || static_page.title,
+      set_meta_tags title: static_page.meta_attribute(:meta_title_override).presence || static_page.title,
                     canonical: generate_absolute_url_for(static_page.slug),
                     description: static_page.meta_attribute(:meta_description),
                     keywords: static_page.meta_attribute(:keywords)
