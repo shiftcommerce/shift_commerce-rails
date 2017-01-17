@@ -16,7 +16,8 @@ module Mocks
           slug: "static-page",
           reference: "static-page",
           body_content: "Test",
-          published: true
+          published: true,
+          canonical_path: "/static_pages/1",
         },
         relationships: {
           template_definition: {
