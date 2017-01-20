@@ -6,7 +6,7 @@ module ShiftCommerce
     
     cache_shared_page only: :show
 
-    API_STATIC_PAGE_INCLUDES = "template_definition,meta.*".freeze
+    API_STATIC_PAGE_INCLUDES = "template,meta.*".freeze
 
     before_action -> { check_canonical_path_for(static_page) }, only: :show
 
