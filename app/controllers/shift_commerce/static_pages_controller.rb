@@ -33,7 +33,8 @@ module ShiftCommerce
     end
 
     def static_page_canonical
-      static_page.meta_attribute(:meta_canonical_override).presence || generate_absolute_url_for(static_page.slug)
+      canonical_path = static_page.meta_attribute(:meta_canonical_override).presence  || static_page.canonical_path
+      generate_absolute_url_for(canonical_path)
     end
 
     def static_page_keywords
