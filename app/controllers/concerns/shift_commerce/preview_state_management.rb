@@ -9,7 +9,7 @@ module ShiftCommerce
 
     included do
       # Check for the previewed state.
-      around_action :handle_preview_state, if: :preview_mode_enabled?
+      around_action :handle_preview_state
       # if caching was to be applied, prevent it
       skip_after_action :vary_page_caching_on_user, if: :preview_mode_enabled?
       skip_around_action :capture_and_apply_surrogate_keys, if: :preview_mode_enabled?
