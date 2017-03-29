@@ -11,8 +11,7 @@ gemspec
 # your gem to rubygems.org.
 
 # Shift Commerce gem
-# gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.25'
-gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", branch: "hotfix/remove_slug_from_redirects"
+gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", tag: 'v0.6.29'
 
 group :development, :test do
   # Debugging tools
