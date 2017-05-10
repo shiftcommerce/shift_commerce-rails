@@ -21,12 +21,10 @@ module ShiftCommerce
         redirect_url = redirect.destination_path
         redirect_to redirect_url, status: redirect.status_code
       else
-        log_exception(exception)
         handle_not_found(exception)
       end
     # when redirects cannot be found, handle using regular 404 process
     rescue ::FlexCommerceApi::Error::NotFound => ex
-      log_exception(ex)
       handle_not_found(exception)
     end
 
@@ -34,15 +32,6 @@ module ShiftCommerce
     def handle_not_found(exception = nil)
       raise(exception)
     end
-
-    private
-
-    def log_exception(ex)
-      return unless ex
-      # log the exception
-      Rails.logger.error(ex)
-      # log the exception with Sentry, if available
-      Raven.capture_exception(ex) if defined?(Raven)
-    end
+  
   end
 end
