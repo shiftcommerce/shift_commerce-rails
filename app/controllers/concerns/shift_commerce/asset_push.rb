@@ -24,8 +24,8 @@ module ShiftCommerce
     end
 
     def asset_type(path)
-      extention_name = File.extname(path)
-      case extention_name
+      file_extention = File.extname(path)
+      case file_extention
       when ".js"  then "as=script"
       when ".css" then "as=stylesheet"
       else return
