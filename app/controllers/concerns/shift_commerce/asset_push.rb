@@ -14,7 +14,7 @@ module ShiftCommerce
     def add_preload_headers
       response.headers['Link'] ||= []
       Array(push_assets).each do |path|
-        response.headers['Link'].push("<#{view_context.asset_path(path)}>; rel=preload; #{asset_type(path)}")
+        response.headers['Link'].push("<#{view_context.asset_path(path)}>; rel=preload; as=#{asset_type(path)}")
       end
     end
 
@@ -26,8 +26,8 @@ module ShiftCommerce
     def asset_type(path)
       file_extention = File.extname(path)
       case file_extention
-      when ".js"  then "as=script"
-      when ".css" then "as=stylesheet"
+      when ".js"  then "script"
+      when ".css" then "stylesheet"
       else return
       end
     end
