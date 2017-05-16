@@ -23,6 +23,7 @@ module ShiftCommerce
       raise NotImplementedError, "to use asset push, you must define #push_assets"
     end
 
+    # determines the asset type using its extension
     def asset_type(path)
       file_extention = File.extname(path)
       case file_extention
