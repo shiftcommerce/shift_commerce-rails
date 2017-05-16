@@ -12,7 +12,7 @@ class AssetPushWithAssetsController < AssetPushController
   private
 
   def push_assets
-    ['foo', 'bar']
+    ['foo.js', 'bar.css']
   end
 end
 
@@ -30,8 +30,8 @@ describe ShiftCommerce::AssetPush, type: :controller do
     it "should set the Link header with the contents of push_assets" do
       get :index
 
-      expect(response.header['Link']).to include('</foo>; rel=preload')
-      expect(response.header['Link']).to include('</bar>; rel=preload')
+      expect(response.header['Link']).to include('</foo.js>; rel=preload; as=script')
+      expect(response.header['Link']).to include('</bar.css>; rel=preload; as=stylesheet')
     end
   end
 
