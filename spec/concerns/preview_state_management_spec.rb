@@ -39,7 +39,7 @@ describe ShiftCommerce::PreviewStateManagement, type: :controller do
 
   context 'with the preview enabled' do
     it "should return the scheduled content" do
-      get :index, preview: true
+      get :index, params: { preview: true }
 
       expect(response.body).to include('Preview')
     end
