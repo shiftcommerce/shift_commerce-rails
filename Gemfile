@@ -21,7 +21,7 @@ end
 
 group :test do
   # Mocks
-  gem "webmock", "~> 3.0.1", require: false
+  gem "webmock", "~> 1.24.2", require: false
 
   # Feature tests (not yet used)
   # gem "capybara", "~> 2.7"

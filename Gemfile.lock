@@ -14,7 +14,7 @@ PATH
   remote: .
   specs:
     shiftcommerce-rails (0.5.19)
-      activemerchant (~> 1.59)
+      activemerchant (~> 1.54)
       meta-tags (~> 2.4.1)
       rails (~> 5.1.1)
 
@@ -174,7 +174,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    webmock (3.0.1)
+    webmock (1.24.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -189,9 +189,9 @@ DEPENDENCIES
   flex_commerce_api!
   pry-byebug
   pry-rails
-  rspec-rails (~> 3.6)
+  rspec-rails (~> 3.3)
   shiftcommerce-rails!
-  webmock (~> 3.0.1)
+  webmock (~> 1.24.2)
 
 BUNDLED WITH
    1.15.1
