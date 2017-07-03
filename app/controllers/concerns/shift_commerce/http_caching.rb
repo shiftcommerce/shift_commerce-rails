@@ -40,7 +40,7 @@ module ShiftCommerce
         yield
       end
 
-      if surrogate_keys.present? && ENV['FASTLY_ENABLE_ESI']
+      if surrogate_keys.present?
         response.headers['Surrogate-Key'] = surrogate_keys.split(' ').reject { |k| k.include?('menu_item') }.join(' ')
         response.headers['Surrogate-Control'] = 'max-age=3600,stale-if-error=86400,stale-while-revalidate=86400'
         response.headers['Cache-Control'] = 'max-age=0, must-revalidate'
