@@ -28,7 +28,7 @@ module ShiftCommerce
       file_extention = File.extname(path)
       case file_extention
       when ".js"  then "script"
-      when ".css" then "stylesheet"
+      when ".css" then "style"
       else return
       end
     end
