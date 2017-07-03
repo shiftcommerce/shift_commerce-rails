@@ -6,7 +6,7 @@ end
 
 class AssetPushWithAssetsController < AssetPushController
   def index
-    render nothing: true
+    render body: nil
   end
 
   private

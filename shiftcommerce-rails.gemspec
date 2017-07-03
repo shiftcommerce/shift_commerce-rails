@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
 
-  spec.add_dependency "rails", "~> 4.2.7"
+  spec.add_dependency "rails", "~> 5.1"
   spec.add_dependency "activemerchant", "~> 1.54"
-  spec.add_dependency "meta-tags", "~> 2.3.1"
+  spec.add_dependency "meta-tags", "~> 2.4"
 
   spec.add_development_dependency "rspec-rails", "~> 3.3"
 end

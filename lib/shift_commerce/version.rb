@@ -1,3 +1,3 @@
 module ShiftCommerce
-  VERSION = '0.5.19'
+  VERSION = '0.6.0'
 end

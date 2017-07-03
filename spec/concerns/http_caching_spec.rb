@@ -4,7 +4,7 @@ class HttpCachingController < ActionController::Base
   include ShiftCommerce::HttpCaching
 
   def index
-    render nothing: true
+    render body: nil
   end
 end
 
@@ -13,7 +13,7 @@ class HttpCachingWithSharedPageController < HttpCachingController
 
   def index
     ::FlexCommerce::StaticPage.includes([]).find(1).first
-    render nothing: true
+    render body: nil
   end
 end
 
@@ -22,7 +22,7 @@ class HttpCachingWithPrivatePageController < HttpCachingController
 
   def index
     ::FlexCommerce::StaticPage.includes([]).find(1).first
-    render nothing: true
+    render body: nil
   end
 end
 

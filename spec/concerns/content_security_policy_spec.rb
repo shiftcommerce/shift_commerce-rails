@@ -4,7 +4,7 @@ class CSPTestController < ActionController::Base
   include ShiftCommerce::ContentSecurityPolicy
 
   def index
-    render nothing: true
+    render body: nil
   end
 end
 
