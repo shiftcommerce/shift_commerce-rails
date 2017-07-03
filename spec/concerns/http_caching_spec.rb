@@ -55,8 +55,6 @@ describe ShiftCommerce::HttpCaching, type: :controller do
       Rails.application.routes.draw do
         get '/http_caching_shared' => 'http_caching_with_shared_page#index'
       end
-
-      ENV['FASTLY_ENABLE_ESI'] = 'true'
     end
 
     it "should apply surrogate keys correctly" do
@@ -80,8 +78,6 @@ describe ShiftCommerce::HttpCaching, type: :controller do
       Rails.application.routes.draw do
         get '/http_caching_private' => 'http_caching_with_private_page#index'
       end
-
-      ENV['FASTLY_ENABLE_ESI'] = 'true'
     end
 
     it "should apply surrogate keys correctly" do

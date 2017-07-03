@@ -31,7 +31,7 @@ describe ShiftCommerce::AssetPush, type: :controller do
       get :index
 
       expect(response.header['Link']).to include('</foo.js>; rel=preload; as=script')
-      expect(response.header['Link']).to include('</bar.css>; rel=preload; as=stylesheet')
+      expect(response.header['Link']).to include('</bar.css>; rel=preload; as=style')
     end
   end
 
