@@ -2,28 +2,32 @@ require 'rails_helper'
 
 class AssetPushController < ActionController::Base
   include ShiftCommerce::AssetPush
-end
-
-class AssetPushWithAssetsController < AssetPushController
+  
   def index
     render body: nil
   end
+end
 
-  private
-
-  def push_assets
+class AssetPushWithPresentAssetsController < AssetPushController
+  private def push_assets
     ['foo.js', 'bar.css']
+  end
+end
+
+class AssetPushWithEmptyAssetsController < AssetPushController
+  private def push_assets
+    []
   end
 end
 
 describe ShiftCommerce::AssetPush, type: :controller do
 
-  context 'with push_assets set' do
+  context 'with push_assets defined and present' do
     before do
-      @controller = AssetPushWithAssetsController.new
+      @controller = AssetPushWithPresentAssetsController.new
 
       Rails.application.routes.draw do
-        get '/assets' => 'asset_push_with_assets#index'
+        get '/present_assets' => 'asset_push_with_present_assets#index'
       end
     end
 
@@ -34,8 +38,24 @@ describe ShiftCommerce::AssetPush, type: :controller do
       expect(response.header['Link']).to include('</bar.css>; rel=preload; as=style')
     end
   end
+  
+  context 'with push_assets defined but empty' do
+    before do
+      @controller = AssetPushWithEmptyAssetsController.new
 
-  context 'without push_assets set' do
+      Rails.application.routes.draw do
+        get '/empty_assets' => 'asset_push_with_empty_assets#index'
+      end
+    end
+
+    it "should not set a Link header" do
+      get :index
+
+      expect(response.header).to_not have_key('Link')
+    end
+  end
+
+  context 'without push_assets defined' do
     before do
       @controller = AssetPushController.new
     end
