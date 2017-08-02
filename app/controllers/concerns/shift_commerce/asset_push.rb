@@ -12,9 +12,12 @@ module ShiftCommerce
 
     # appends a Link header for each asset that's due to be pushed
     def add_preload_headers
-      response.headers['Link'] ||= []
-      Array(push_assets).each do |path|
-        response.headers['Link'].push("<#{view_context.asset_path(path)}>; rel=preload; as=#{asset_type(path)}")
+      assets_to_push = Array(push_assets)
+      if assets_to_push.any?
+        response.headers['Link'] ||= []
+        assets_to_push.each do |path|
+          response.headers['Link'].push("<#{view_context.asset_path(path)}>; rel=preload; as=#{asset_type(path)}")
+        end
       end
     end
 
