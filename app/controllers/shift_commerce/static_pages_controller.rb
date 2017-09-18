@@ -22,6 +22,10 @@ module ShiftCommerce
                     canonical: static_page_canonical,
                     description: static_page_description,
                     keywords: static_page_keywords
+      #removes the page from index if "noindex" option is selected
+      if static_page.meta_attribute(:meta_robot_tag) == "noindex"
+          set_meta_tags noindex: true
+      end
     end
 
     def static_page_title
