@@ -14,7 +14,7 @@ module ShiftCommerce
     private
 
     def shift_cache_key(object, banner_reference)
-      object_id = banner_reference == nil ? menu.id : banner_reference
+      object_id = banner_reference == nil ? object.id : banner_reference
       [object.class.name, object_id, object.updated_at.to_datetime.utc.to_i.to_s].join("/")
     end
   end
