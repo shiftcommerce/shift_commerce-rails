@@ -6,6 +6,10 @@
 module ShiftCommerce
   module ResourceUrl
     extend ActiveSupport::Concern
+    
+    included do
+      helper_method :generate_absolute_url_for
+    end
 
     private
 
