@@ -6,6 +6,10 @@ module ShiftCommerce
     end
 
     def menus_cache(reference)
+      # Dont fetch from cache if requested for a preview
+      return yield if params[:preview].present?
+
+      # Fetch from cache for normal requests
       menu = all_menus_cache[reference] || MissingMenu.new(reference)
       return yield if menu.nil?
       multi_cache(shift_cache_key(menu)) { yield if block_given? }
