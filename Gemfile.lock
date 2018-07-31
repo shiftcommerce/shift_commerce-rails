@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    shiftcommerce-rails (0.6.0)
+    shiftcommerce-rails (0.6.3)
       activemerchant (~> 1.54)
       meta-tags (~> 2.4)
       rails (~> 5.1)
@@ -47,8 +47,8 @@ GEM
     activejob (5.1.2)
       activesupport (= 5.1.2)
       globalid (>= 0.3.6)
-    activemerchant (1.68.0)
-      activesupport (>= 3.2.14, < 6.x)
+    activemerchant (1.80.0)
+      activesupport (>= 4.2, < 6.x)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
       nokogiri (~> 1.4)
@@ -80,7 +80,7 @@ GEM
       faraday (~> 0.8)
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
-    globalid (0.4.0)
+    globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashdiff (0.3.4)
     i18n (0.8.4)
@@ -92,18 +92,16 @@ GEM
       faraday_middleware (~> 0.9)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.6)
-      mime-types (>= 1.16, < 4)
-    meta-tags (2.4.1)
-      actionpack (>= 3.2.0, < 5.2)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
+    meta-tags (2.10.0)
+      actionpack (>= 3.2.0, < 5.3)
     method_source (0.8.2)
-    mime-types (3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mini_mime (1.0.0)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     multipart-post (2.0.0)
-    nio4r (2.1.0)
+    nio4r (2.3.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     oj (2.18.5)
@@ -163,10 +161,10 @@ GEM
     rspec-support (3.6.0)
     safe_yaml (1.0.4)
     slop (3.6.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.2.0)
+    sprockets-rails (3.2.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -180,7 +178,7 @@ GEM
       hashdiff
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket-extensions (0.1.3)
 
 PLATFORMS
   ruby
@@ -194,4 +192,4 @@ DEPENDENCIES
   webmock (~> 1.24.2)
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
