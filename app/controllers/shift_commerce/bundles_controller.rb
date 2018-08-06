@@ -93,7 +93,19 @@ module ShiftCommerce
     end
 
     def bundle
-      @bundle ||= ::FlexCommerce::Bundle.with_params(fields: API_BUNDLE_FIELDS).includes(API_BUNDLE_INCLUDES).find(params[:id]).first
+      @bundle ||= ::FlexCommerce::Bundle.with_params(fields: api_bundle_fields).includes(api_bundle_includes).find(params[:id]).first
+    end
+
+    # This is to allow override "fields"
+    # from the sub classes
+    def api_bundle_fields
+      self.class::API_BUNDLE_FIELDS
+    end
+
+    # This is to allow override "includes"
+    # from the sub classes
+    def api_bundle_includes
+      self.class::API_BUNDLE_INCLUDES
     end
 
   end
