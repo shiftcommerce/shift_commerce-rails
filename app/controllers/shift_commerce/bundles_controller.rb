@@ -54,14 +54,6 @@ module ShiftCommerce
       ].join(',').freeze
     }.freeze
 
-    # expose(:bundle)         { FlexCommerce::Bundle.with_params(fields: API_BUNDLE_FIELDS).includes(API_BUNDLE_INCLUDES).find(params[:id]).first }
-    # expose(:bundle_groups)  { bundle.bundle_groups }
-    # expose(:asset_files)    { bundle.asset_files }
-    # expose(:asset_file)     { asset_files.first }
-
-    # expose(:ewis_service)   { EwisOptIn::EwisOptInService.new({ewis_opt_in: FlexCommerce::EwisOptIn.new }) }
-    # expose(:ewis_opt_in_form) { ewis_service.initialize_form  }
-
     before_action -> { check_canonical_path_for(bundle) }, only: :show
 
     def show
@@ -102,5 +94,14 @@ module ShiftCommerce
     def bundle_groups
       bundle.bundle_groups
     end
+
+    def asset_files
+      bundle.asset_files
+    end
+
+    def asset_file
+      asset_files.first
+    end
+
   end
 end
