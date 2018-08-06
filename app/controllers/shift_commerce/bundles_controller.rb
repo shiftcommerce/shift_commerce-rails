@@ -58,14 +58,7 @@ module ShiftCommerce
 
     def show
       if bundle&.asset_files.present?
-        set_meta_tags title: bundle_page_title,
-                    canonical: bundle_page_canonical,
-                    description: bundle_page_description,
-                    keywords: bundle.meta_attribute(:keywords)
-        # removes from index if "noindex" option is selected
-        if bundle.meta_attribute(:meta_robot_tag) == "noindex"
-          set_meta_tags noindex: true
-        end
+        set_bundle_meta_tags
         render_template_for bundle, locals: { bundle: bundle }
       else
         handle_resource_not_found
@@ -73,6 +66,18 @@ module ShiftCommerce
     end
 
     private
+
+    def set_bundle_meta_tags
+      set_meta_tags title: bundle_page_title,
+        canonical: bundle_page_canonical,
+        description: bundle_page_description,
+        keywords: bundle.meta_attribute(:keywords)
+      
+      # removes from index if "noindex" option is selected
+      if bundle.meta_attribute(:meta_robot_tag) == "noindex"
+        set_meta_tags noindex: true
+      end
+    end
 
     def bundle_page_title
       bundle.meta_attribute(:meta_title_override).presence || bundle.title
@@ -89,18 +94,6 @@ module ShiftCommerce
 
     def bundle
       @bundle ||= ::FlexCommerce::Bundle.with_params(fields: API_BUNDLE_FIELDS).includes(API_BUNDLE_INCLUDES).find(params[:id]).first
-    end
-
-    def bundle_groups
-      bundle.bundle_groups
-    end
-
-    def asset_files
-      bundle.asset_files
-    end
-
-    def asset_file
-      asset_files.first
     end
 
   end
