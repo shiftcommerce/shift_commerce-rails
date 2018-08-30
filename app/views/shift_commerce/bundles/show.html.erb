@@ -1,0 +1,10 @@
+<% if bundle %>
+    <% shift_cache bundle do %>
+        <h1><%= bundle.title %></h1>
+        <div class="container" role="main">
+            <div class="row">
+              <%= bundle.name %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
