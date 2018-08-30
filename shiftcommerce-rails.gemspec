@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 5.1"
   spec.add_dependency "activemerchant", "~> 1.54"
   spec.add_dependency "meta-tags", "~> 2.4"
-  spec.add_dependency "rack-timeout"
+  spec.add_dependency "rack-timeout", "~> 0.5.1"
 
   spec.add_development_dependency "rspec-rails", "~> 3.3"
 end
