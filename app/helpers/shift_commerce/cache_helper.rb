@@ -5,22 +5,25 @@ module ShiftCommerce
       cache(shift_cache_key object, *args) { yield }
     end
 
-    def menus_cache(references, banner_reference = nil)
+    def menus_cache(reference, banner_reference = nil, dependent_reference = nil)
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
+      # Initialize menus variable to an array
       menus = []
-      Array(references).each do |reference|
-        menus.push(all_menus_cache[reference] || MissingMenu.new(reference))
+
+      [reference, dependent_reference].each do |key|
+        menus.push(all_menus_cache[key] || MissingMenu.new(key)) unless key.nil?
       end
 
+      # If we dont find any in cache, then fetch via api
       return yield if menus.nil?
 
       # Fetch from cache for normal requests
-      if references.kind_of?(Array)
-        multi_nested_cache(shift_cache_key(menus)) { yield if block_given? }
-      else
+      if dependent_reference.nil?
         multi_cache(shift_cache_key(menus, banner_reference)) { yield if block_given? }
+      else
+        multi_dependent_cache(shift_cache_key(menus)) { yield if block_given? }
       end
     end
   
