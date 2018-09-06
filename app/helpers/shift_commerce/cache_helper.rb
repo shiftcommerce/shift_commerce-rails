@@ -12,7 +12,7 @@ module ShiftCommerce
       # Fetch from cache for normal requests
       menu = all_menus_cache[reference] || MissingMenu.new(reference)
       return yield if menu.nil?
-      multi_cache(shift_cache_key(menu, banner_reference), {expires_in: expires_in}) { yield if block_given? }
+      multi_cache(shift_cache_key(menu, banner_reference), {expires_in: expires_in, race_condition_ttl: 60.seconds}) { yield if block_given? }
     end
 
     private
