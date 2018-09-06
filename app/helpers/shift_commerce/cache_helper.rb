@@ -5,7 +5,7 @@ module ShiftCommerce
       cache(shift_cache_key object, *args) { yield }
     end
 
-    def menus_cache(reference, banner_reference = nil, expires_in: nil)
+    def menus_cache(reference, banner_reference = nil, expires_in: 0)
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
