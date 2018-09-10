@@ -5,7 +5,7 @@ module ShiftCommerce
       cache(shift_cache_key object, *args) { yield }
     end
 
-    def menus_cache(reference, banner_reference = nil, dependent_reference = nil)
+    def menus_cache(reference, banner_reference = nil, dependent_reference = nil, options = {})
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
@@ -21,9 +21,9 @@ module ShiftCommerce
 
       # Fetch from cache for normal requests
       if dependent_reference.nil?
-        multi_cache(shift_cache_key(menus, banner_reference)) { yield if block_given? }
+        multi_cache(shift_cache_key(menus, banner_reference), options) { yield if block_given? }
       else
-        multi_dependent_cache(shift_cache_key(menus)) { yield if block_given? }
+        multi_dependent_cache(shift_cache_key(menus), options) { yield if block_given? }
       end
     end
   
