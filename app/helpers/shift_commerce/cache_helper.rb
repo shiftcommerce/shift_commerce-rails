@@ -1,7 +1,7 @@
 module ShiftCommerce
   module CacheHelper
     def shift_cache object, *args
-      return yield if object.nil?
+      return yield if object.nil? || params[:preview] === 'true'
       cache(shift_cache_key object, *args) { yield }
     end
 
