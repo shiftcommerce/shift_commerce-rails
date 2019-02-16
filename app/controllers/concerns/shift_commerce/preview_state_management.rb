@@ -13,8 +13,13 @@ module ShiftCommerce
       # if caching was to be applied, prevent it
       skip_after_action :vary_page_caching_on_user, if: :preview_mode_enabled?, raise: false
       skip_around_action :capture_and_apply_surrogate_keys, if: :preview_mode_enabled?, raise: false
+      # expose #preview_mode_enabled? to views
+      helper_method :preview_mode_enabled?
     end
 
+    def preview_mode_enabled?
+      params[:preview].present?
+    end
 
     protected
 
@@ -26,10 +31,6 @@ module ShiftCommerce
       yield
     ensure
       FlexCommerceApi::ApiBase.reconfigure_all
-    end
-
-    def preview_mode_enabled?
-      params[:preview].present?
     end
   end
 end
