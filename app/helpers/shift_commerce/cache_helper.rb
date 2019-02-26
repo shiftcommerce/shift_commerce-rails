@@ -28,12 +28,12 @@ module ShiftCommerce
     end
 
     private
-    # Object can be a menu, static_page or any other resource we wish to cache.
-    def shift_cache_key(object, banner_reference = nil)
+    # Object can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
+    def shift_cache_key(resource, banner_reference = nil)
       keys = []
-      Array(object).each do |object|
-        object_id = banner_reference == nil ? object.id : banner_reference
-        keys.push([object.class, object_id, object.updated_at.to_datetime.utc.to_i.to_s].join("/"))
+      Array(resource).each do |resource|
+        resource_id = banner_reference == nil ? resource.id : banner_reference
+        keys.push([resource.class, resource_id, resource.updated_at.to_datetime.utc.to_i.to_s].join("/"))
       end
       keys
     end
