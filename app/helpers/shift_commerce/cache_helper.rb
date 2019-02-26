@@ -26,14 +26,14 @@ module ShiftCommerce
         multi_dependent_cache(shift_cache_key(menus), options) { yield if block_given? }
       end
     end
-  
-    private
 
+    private
+    # Object can be a menu, static_page or any other resource we wish to cache.
     def shift_cache_key(object, banner_reference = nil)
       keys = []
-      Array(object).each do |menu|
-        object_id = banner_reference == nil ? menu.id : banner_reference
-        keys.push(["FlexCommerce::Menu", object_id, menu.updated_at.to_datetime.utc.to_i.to_s].join("/"))
+      Array(object).each do |object|
+        object_id = banner_reference == nil ? object.id : banner_reference
+        keys.push([object.class, object_id, object.updated_at.to_datetime.utc.to_i.to_s].join("/"))
       end
       keys
     end
