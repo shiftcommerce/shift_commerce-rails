@@ -28,7 +28,7 @@ module ShiftCommerce
     end
 
     private
-    # Object can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
+    # resource can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
     def shift_cache_key(resource, banner_reference = nil)
       keys = []
       Array(resource).each do |resource|
