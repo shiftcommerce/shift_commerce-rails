@@ -46,7 +46,7 @@ module ShiftCommerce
     end
 
     def render_static_page?
-      static_page.published == true && static_page.meta_attribute(:hide_static_page) == false
+      static_page.published == true
     end
   
     def render_static_page
