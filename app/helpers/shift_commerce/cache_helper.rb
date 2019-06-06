@@ -5,7 +5,7 @@ module ShiftCommerce
       cache(shift_cache_key object, *args) { yield }
     end
 
-    def menus_cache(reference, cache_version, banner_reference = nil, dependent_reference = nil, options = {})
+    def menus_cache(reference, cache_version = nil, banner_reference = nil, dependent_reference = nil, options = {})
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
@@ -33,7 +33,7 @@ module ShiftCommerce
       keys = []
       Array(resource).each do |resource|
         resource_id = banner_reference == nil ? resource.id : banner_reference
-        keys.push([resource.class, resource_id, cache_version, resource.updated_at.to_datetime.utc.to_i.to_s].join("/"))
+        keys.push([resource.class, resource_id, cache_version, resource.updated_at.to_datetime.utc.to_i.to_s].compact.join("/"))
       end
       keys
     end
