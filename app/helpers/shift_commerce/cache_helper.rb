@@ -5,7 +5,9 @@ module ShiftCommerce
       cache(shift_cache_key object, *args) { yield }
     end
 
-    def menus_cache(reference, cache_version = nil, banner_reference = nil, dependent_reference = nil, options = {})
+    def menus_cache(reference, banner_reference = nil, dependent_reference = nil, options = {})
+      # Menu cache version
+      cache_version = menus_cache_version
 
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
@@ -29,6 +31,15 @@ module ShiftCommerce
     end
 
     private
+
+    def menus_cache_version
+      if defined?(Menus) == 'constant' && Menus.class == Class
+        Menus.public_send(:menu_cache_version)
+      else
+        "v1"
+      end
+    end
+
     # resource can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
     def shift_cache_key(resource, cache_version = nil, banner_reference = nil)
       keys = []
