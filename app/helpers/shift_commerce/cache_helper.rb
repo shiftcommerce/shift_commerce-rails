@@ -6,6 +6,7 @@ module ShiftCommerce
     end
 
     def menus_cache(reference, cache_version = nil, banner_reference = nil, dependent_reference = nil, options = {})
+
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
@@ -29,7 +30,7 @@ module ShiftCommerce
 
     private
     # resource can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
-    def shift_cache_key(resource, cache_version, banner_reference = nil)
+    def shift_cache_key(resource, cache_version = nil, banner_reference = nil)
       keys = []
       Array(resource).each do |resource|
         resource_id = banner_reference == nil ? resource.id : banner_reference
