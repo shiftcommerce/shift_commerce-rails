@@ -6,9 +6,6 @@ module ShiftCommerce
     end
 
     def menus_cache(reference, banner_reference = nil, dependent_reference = nil, options = {})
-      # Menu cache version
-      cache_version = menus_cache_version
-
       # Dont fetch from cache if requested for a preview
       return yield if params[:preview] === 'true'
 
@@ -21,6 +18,9 @@ module ShiftCommerce
 
       # If we dont find any in cache, then fetch via api
       return yield if menus.nil?
+
+      # Menu cache version
+      cache_version = menus_cache_version
 
       # Fetch from cache for normal requests
       if dependent_reference.nil?
