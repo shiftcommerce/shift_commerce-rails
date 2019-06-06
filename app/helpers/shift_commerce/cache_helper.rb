@@ -33,10 +33,11 @@ module ShiftCommerce
     private
 
     def menus_cache_version
+      default_version = "v1"
       if defined?(Menus) == 'constant' && Menus.class == Class
-        Menus.public_send(:menu_cache_version)
+        Menus&.menu_cache_version || default_version
       else
-        "v1"
+        default_version
       end
     end
 
