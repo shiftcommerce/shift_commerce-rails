@@ -19,21 +19,34 @@ module ShiftCommerce
       # If we dont find any in cache, then fetch via api
       return yield if menus.nil?
 
+      # Menu cache version
+      cache_version = menus_cache_version
+
       # Fetch from cache for normal requests
       if dependent_reference.nil?
-        multi_cache(shift_cache_key(menus, banner_reference), options) { yield if block_given? }
+        multi_cache(shift_cache_key(menus, cache_version, banner_reference), options) { yield if block_given? }
       else
-        multi_dependent_cache(shift_cache_key(menus), options) { yield if block_given? }
+        multi_dependent_cache(shift_cache_key(menus, cache_version), options) { yield if block_given? }
       end
     end
 
     private
+
+    def menus_cache_version
+      default_version = "v1"
+      if defined?(Menus) == 'constant' && Menus.class == Class
+        Menus&.menu_cache_version || default_version
+      else
+        default_version
+      end
+    end
+
     # resource can be a FlexCommerce::Menu, FlexCommerce::StaticPage or any other resource we wish to cache.
-    def shift_cache_key(resource, banner_reference = nil)
+    def shift_cache_key(resource, cache_version = nil, banner_reference = nil)
       keys = []
       Array(resource).each do |resource|
         resource_id = banner_reference == nil ? resource.id : banner_reference
-        keys.push([resource.class, resource_id, resource.updated_at.to_datetime.utc.to_i.to_s].join("/"))
+        keys.push([resource.class, resource_id, cache_version, resource.updated_at.to_datetime.utc.to_i.to_s].compact.join("/"))
       end
       keys
     end
