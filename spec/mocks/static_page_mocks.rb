@@ -8,7 +8,12 @@ module Mocks
           self: "/testaccount/v1/static_pages/1.json_api"
         },
         attributes: {
-          meta_attributes: {},
+          meta_attributes: {
+            static_content: {
+              value: "<p> Body content </p>",
+              data_type: "textarea"
+            }
+          },
           template_attributes: {},
           updated_at: Time.now,
           created_at: Time.now,

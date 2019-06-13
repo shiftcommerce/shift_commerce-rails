@@ -7,7 +7,7 @@ class PreviewStateManagementController < ActionController::Base
 
   def index
     page = FlexCommerce::StaticPage.includes([]).find(1).first
-    render html: page.body_content
+    render html: page.meta_attribute(:static_content)
   end
 end
 

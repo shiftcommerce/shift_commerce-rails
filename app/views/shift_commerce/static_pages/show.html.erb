@@ -3,7 +3,10 @@
         <h1><%= static_page.title %></h1>
         <div class="container" role="main">
             <div class="row">
-              <%= static_page.body_content.html_safe %>
+              <% body_content = static_page.meta_attribute(:static_content)%>
+              <% if body_content.present? %>
+                <%= body_content.html_safe %>
+              <% end %>
             </div>
         </div>
     <% end %>

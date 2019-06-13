@@ -8,7 +8,13 @@ module Mocks
           self: "/testaccount/v1/static_pages/1.json_api"
         },
         attributes: {
-          body_content: "Published",
+          "meta_attributes": {
+            "static_content": {
+              "value": "Published",
+              "data_type": "textarea"
+            }
+          },
+          body_content: "",
           published: true
         }
       },
@@ -25,7 +31,13 @@ module Mocks
           self: "/testaccount/v1/static_pages/1.json_api"
         },
         attributes: {
-          body_content: "Preview",
+          "meta_attributes": {
+            "static_content": {
+              "value": "Preview",
+              "data_type": "textarea"
+            }
+          },
+          body_content: "",
           published: true
         }
       },
