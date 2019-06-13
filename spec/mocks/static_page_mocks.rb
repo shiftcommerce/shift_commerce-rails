@@ -10,7 +10,7 @@ module Mocks
         attributes: {
           meta_attributes: {
             static_content: {
-              value: "<p> Body content </p>",
+              value: "Test",
               data_type: "textarea"
             }
           },
@@ -20,7 +20,7 @@ module Mocks
           title: "Static Page",
           slug: "static-page",
           reference: "static-page",
-          body_content: "Test",
+          body_content: "",
           published: true,
           canonical_path: "/static_pages/1",
         },
