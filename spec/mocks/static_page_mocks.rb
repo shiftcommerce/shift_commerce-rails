@@ -8,14 +8,19 @@ module Mocks
           self: "/testaccount/v1/static_pages/1.json_api"
         },
         attributes: {
-          meta_attributes: {},
+          meta_attributes: {
+            static_content: {
+              value: "Test",
+              data_type: "textarea"
+            }
+          },
           template_attributes: {},
           updated_at: Time.now,
           created_at: Time.now,
           title: "Static Page",
           slug: "static-page",
           reference: "static-page",
-          body_content: "Test",
+          body_content: "",
           published: true,
           canonical_path: "/static_pages/1",
         },
