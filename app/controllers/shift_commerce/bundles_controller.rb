@@ -80,7 +80,7 @@ module ShiftCommerce
     end
 
     def bundle_page_title
-      bundle.meta_attribute(:meta_title_override).presence || bundle.title
+      bundle.meta_attribute(:meta_title_override).presence || bundle.name
     end
 
     def bundle_page_description
