@@ -1,3 +1,4 @@
+# freeze_string_literal: true
 module ShiftCommerce
   module BundleHelper
     BUNDLE_CACHE_VERSION = "v1"

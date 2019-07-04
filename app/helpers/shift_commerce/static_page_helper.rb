@@ -1,3 +1,4 @@
+# freeze_string_literal: true
 module ShiftCommerce
   module StaticPageHelper
     STATIC_PAGE_CACHE_STATIC_VERSION = "v1"

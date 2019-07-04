@@ -23,7 +23,7 @@ module ShiftCommerce
                     description: static_page_description,
                     keywords: static_page_keywords
       #removes the page from index if "noindex" option is selected
-      if static_page.present? && static_page.meta_attribute(:meta_robot_tag) == "noindex"
+      if static_page.meta_attribute(:meta_robot_tag) == "noindex"
           set_meta_tags noindex: true
       end
     end
@@ -46,11 +46,11 @@ module ShiftCommerce
     end
 
     def render_static_page?
-      static_page.present? && static_page.published == true
+      static_page.published == true
     end
   
     def render_static_page
-      if render_static_page? 
+      if render_static_page?
         render_template_for static_page, locals: { static_page: static_page }
       else
         handle_resource_not_found
@@ -59,8 +59,6 @@ module ShiftCommerce
 
     def static_page
       @static_page ||= ::FlexCommerce::StaticPage.includes(API_STATIC_PAGE_INCLUDES).find(params[:id]).first
-      puts @static_page.inspect
-      @static_page
     end
 
   end
