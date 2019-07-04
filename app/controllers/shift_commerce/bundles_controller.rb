@@ -23,7 +23,8 @@ module ShiftCommerce
         'canonical_path',
         'asset_files',
         'bundle_groups',
-        'meta_attributes'
+        'meta_attributes',
+        'updated_at'
       ].join(',').freeze,
       asset_files: 's3_url'.freeze,
       products: [
