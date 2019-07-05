@@ -4,7 +4,7 @@ module ShiftCommerce
     BUNDLE_CACHE_VERSION = "v1"
 
     def bundle_cache_version
-      self.BUNDLE_CACHE_VERSION
+      self::BUNDLE_CACHE_VERSION
     end
   end
 end
