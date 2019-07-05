@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    shiftcommerce-rails (0.6.17)
+    shiftcommerce-rails (0.6.18)
       activemerchant (~> 1.54)
       meta-tags (~> 2.4)
       rack-timeout (~> 0.5.1)
