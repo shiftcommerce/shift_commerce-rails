@@ -1,5 +1,5 @@
 <% if static_page %>
-    <% shift_cache static_page do %>
+    <% shift_cache(static_page, static_page_cache_version)do %>
         <h1><%= static_page.title %></h1>
         <div class="container" role="main">
             <div class="row">

@@ -1,5 +1,5 @@
 <% if bundle %>
-    <% shift_cache bundle do %>
+    <% shift_cache(bundle, bundle_cache_version)do %>
         <h1><%= bundle.title %></h1>
         <div class="container" role="main">
             <div class="row">
