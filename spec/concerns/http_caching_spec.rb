@@ -65,7 +65,7 @@ describe ShiftCommerce::HttpCaching, type: :controller do
 
       get :index
 
-      expect(response.header['Cache-Control']).to eq('max-age=0, must-revalidate')
+      expect(response.header['Cache-Control']).to eq('public, max-age=0, must-revalidate')
       expect(response.header['Surrogate-Key']).to eq('foo bar')
       expect(response.header['Surrogate-Control']).to include('max-age=3600,stale-if-error=86400,stale-while-revalidate=86400')
     end
@@ -90,7 +90,7 @@ describe ShiftCommerce::HttpCaching, type: :controller do
 
       expect(response.header['Vary']).to eq('Cookie')
       expect(response.header['Surrogate-Key']).to eq('foo bar')
-      expect(response.header['Cache-Control']).to eq('max-age=0, must-revalidate')
+      expect(response.header['Cache-Control']).to eq('public, max-age=0, must-revalidate')
       expect(response.header['Surrogate-Control']).to include('max-age=3600,stale-if-error=86400,stale-while-revalidate=86400')
     end
   end
