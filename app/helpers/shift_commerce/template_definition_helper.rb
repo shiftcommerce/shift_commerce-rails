@@ -5,7 +5,7 @@ module ShiftCommerce
         if minimal_layout?
           render "template_definitions/#{item.template.reference}", *args, layout: false
         else
-          render "template_definitions/#{item.template.reference}", *args
+          render "template_definitions/#{item.template.reference}", *args, layout: true
         end
       else
         render *args
