@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
 
-  spec.add_dependency "rails", "~> 6.0"
+  spec.add_dependency "rails", ">= 5"
   spec.add_dependency "activemerchant", "~> 1.54"
   spec.add_dependency "meta-tags", "~> 2.4"
   spec.add_dependency "rack-timeout", "~> 0.5.1"

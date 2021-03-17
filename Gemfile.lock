@@ -17,7 +17,7 @@ PATH
       activemerchant (~> 1.54)
       meta-tags (~> 2.4)
       rack-timeout (~> 0.5.1)
-      rails (~> 6.0)
+      rails (>= 5)
 
 GEM
   remote: https://rubygems.org/
