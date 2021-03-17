@@ -1,19 +1,19 @@
 GIT
   remote: https://github.com/flex-commerce/flex-ruby-gem.git
-  revision: f1c15f1dd5454cce1861906e94d41c5dc1191ab3
-  branch: feature/matalan
+  revision: 3d478966c037decb24c759d1a8b2ab4739aee5fe
+  branch: upgrade_json_api_client
   specs:
-    flex_commerce_api (0.6.57)
+    flex_commerce_api (0.8.4.2)
       activesupport (>= 4.0)
       faraday-http-cache (= 1.3.0)
-      json_api_client (= 1.1.1)
+      json_api_client (= 1.6.0)
       oj (~> 2.12)
       rack (>= 1.6)
 
 PATH
   remote: .
   specs:
-    shiftcommerce-rails (0.6.19)
+    shiftcommerce-rails (0.6.20)
       activemerchant (~> 1.54)
       meta-tags (~> 2.4)
       rack-timeout (~> 0.5.1)
@@ -108,11 +108,11 @@ GEM
     hashdiff (0.3.4)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
-    json_api_client (1.1.1)
+    json_api_client (1.6.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       addressable (~> 2.2)
-      faraday (~> 0.9)
+      faraday (~> 0.15, >= 0.15.2)
       faraday_middleware (~> 0.9)
     loofah (2.9.0)
       crass (~> 1.0.2)
