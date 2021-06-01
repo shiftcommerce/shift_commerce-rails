@@ -11,7 +11,7 @@ gemspec
 # your gem to rubygems.org.
 
 # Shift Commerce gem
-gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", branch: "feature/matalan"
+gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", branch: "upgrade_json_api_client"
 
 group :development, :test do
   # Debugging tools
