@@ -11,7 +11,9 @@ gemspec
 # your gem to rubygems.org.
 
 # Shift Commerce gem
-gem "flex_commerce_api", git: "https://github.com/flex-commerce/flex-ruby-gem.git", branch: "upgrade_json_api_client"
+source "https://rubygems.pkg.github.com/shiftcommerce" do
+  gem "flex_commerce_api", "1.1.0"
+end
 
 group :development, :test do
   # Debugging tools
