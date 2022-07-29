@@ -12,7 +12,7 @@ gemspec
 
 # Shift Commerce gem
 source "https://rubygems.pkg.github.com/shiftcommerce" do
-  gem "flex_commerce_api", "1.1.0"
+  gem "flex_commerce_api", "1.1.1"
 end
 
 group :development, :test do
