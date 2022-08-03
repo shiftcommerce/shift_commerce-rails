@@ -26,7 +26,7 @@ module ShiftCommerce
         'meta_attributes',
         'updated_at'
       ].join(',').freeze,
-      asset_files: 's3_url'.freeze,
+      asset_files: 'public_url'.freeze,
       products: [
         'reference',
         'title',
