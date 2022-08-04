@@ -75,7 +75,7 @@ module Mocks
                 "file_content_size": 11920802,
                 "image_height": 5418,
                 "image_width": 3612,
-                "s3_url": "https://production-matalanb-files.s3-eu-west-1.amazonaws.com/uploads/asset_file/asset_file/153570/1510654205.45299-MATALAN-EP24-Alesha_014_1_.jpg",
+                "public_url": "https://production-matalanb-files.s3-eu-west-1.amazonaws.com/uploads/asset_file/asset_file/153570/1510654205.45299-MATALAN-EP24-Alesha_014_1_.jpg",
                 "canonical_path": "https://production-matalanb-files.s3-eu-west-1.amazonaws.com/uploads/asset_file/asset_file/153570/1510654205.45299-MATALAN-EP24-Alesha_014_1_.jpg"
             },
             "relationships": {
